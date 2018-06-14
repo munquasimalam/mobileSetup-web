@@ -1,0 +1,19 @@
+<!-- app.component.html -->
+
+<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+
+	<!-- We'll add our form controls here -->
+	<div>
+		<label>mobile</label>
+		<input type="text" formControlName="mobile">
+	</div>
+	<div>
+		<label>password</label>
+		<input type="text" formControlName="password">
+		<small [hidden]="myForm.controls.password.valid || (myForm.controls.password.pristine && !submitted)">
+			Name is required (minimum 3 characters).
+		</small>
+	</div>
+	<button type="submit">Submit</button>
+
+</form>
